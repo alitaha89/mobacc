@@ -21,7 +21,8 @@ public class Welcome extends Activity{
 					e.printStackTrace();
 				}finally{
 					
-					/////jump to the first intent
+					Intent openStartingPoint = new Intent("com.example.mobacc.MENU");
+					startActivity(openStartingPoint);
 					
 				}
 				
