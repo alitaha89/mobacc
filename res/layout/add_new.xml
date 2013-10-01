@@ -3,19 +3,47 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/merchant"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:ems="10"
+        android:hint="@string/Merchant" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="date" />
+
+    <EditText
+        android:id="@+id/amount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="@string/Amount" />
  
     <Spinner
-        android:id="@+id/spinner1"
+        android:id="@+id/category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:entries="@array/categories"
-        android:prompt="@string/select"/>
- 
-    <Spinner
-        android:id="@+id/spinner2"
+        android:prompt="@string/select" />
+
+    <EditText
+        android:id="@+id/description"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:prompt="@string/select2" />
+        android:layout_height="100dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:hint="@string/Description" />
  
     <Button
         android:id="@+id/button"

@@ -23,5 +23,8 @@
         <item>Cat7</item>
         <item>Cat8</item>
     </string-array>
+    <string name="Merchant">Merchant</string>
+    <string name="Amount">Amount</string>
+    <string name="Description">Description</string>
     
 </resources>
