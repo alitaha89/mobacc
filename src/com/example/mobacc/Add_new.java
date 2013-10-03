@@ -2,27 +2,13 @@ package com.example.mobacc;
 
 
 
-import java.io.BufferedReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 
-
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.BufferedHttpEntity;
-
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
 import android.app.Activity;
-import android.content.Context;
 
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -30,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
  
 public class Add_new extends Activity {
  
@@ -66,8 +53,8 @@ public class Add_new extends Activity {
 	    }
 	}
   public boolean isNetworkOnline() {
-	
-	   boolean status=false;
+	return true;
+	 /*  boolean status=false;
 	    try{
 	        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 	        NetworkInfo netInfo = cm.getNetworkInfo(0);
@@ -83,38 +70,13 @@ public class Add_new extends Activity {
 	        return false;
 	    }
 	    return status;
-
+*/
 	    }
   
   public void sendPost(String postData){
-	  try{
-		  Toast.makeText(Add_new.this,"Online" ,Toast.LENGTH_SHORT).show();
-
-		HttpClient httpclient = new DefaultHttpClient();
-	    HttpPost httppost = new HttpPost("http://www.linteractif.com/mobacc/add.php");
-
-	        // Execute HTTP Post Request
-	        HttpResponse response = httpclient.execute(httppost);
-
-	        HttpEntity ht = response.getEntity();
-
-	            BufferedHttpEntity buf = new BufferedHttpEntity(ht);
-
-	            InputStream is = buf.getContent();
-
-	            BufferedReader r = new BufferedReader(new InputStreamReader(is));
-
-	            StringBuilder total = new StringBuilder();
-	            String line;
-	            while ((line = r.readLine()) != null) {
-	                total.append(line);
-	            }
-
-	 
-	  }catch(Exception  e)
-		{
-			
-		}
+	  
+	   
+	    new RequestTask().execute("http://www.linteractif.com/mobacc/add.php?a=3");
   }
   /*public void mReadJsonData(String params) {
 	    try {

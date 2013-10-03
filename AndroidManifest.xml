@@ -3,7 +3,7 @@
     package="com.example.mobacc"
     android:versionCode="1"
     android:versionName="1.0" >
-
+<uses-permission android:name="android.permission.INTERNET" />
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="17" />
@@ -35,6 +35,7 @@
             android:name="com.example.mobacc.Add_new"
             android:label="@string/title_activity_add_new" >
         </activity>
+        
     </application>
 
 </manifest>
