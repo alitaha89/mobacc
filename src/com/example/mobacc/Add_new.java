@@ -4,6 +4,8 @@ package com.example.mobacc;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -73,10 +75,11 @@ public class Add_new extends Activity {
 */
 	    }
   
-  public void sendPost(String postData){
+  public void sendPost(String spinner) throws UnsupportedEncodingException{
 	  
+	 // 	query = URLEncoder.encode("apples oranges", "utf-8");
 	   
-	    new RequestTask().execute("http://www.linteractif.com/mobacc/add.php?a=3");
+	    new RequestTask().execute("http://www.linteractif.com/mobacc/add.php?spinner="+URLEncoder.encode(spinner, "utf-8"));
   }
   /*public void mReadJsonData(String params) {
 	    try {
@@ -111,7 +114,7 @@ public class Add_new extends Activity {
  
 		  try{
 				
-				Report.put("spinner", category.getSelectedItem());
+				Report.put("spinner", category.getSelectedItem().toString());
 				Report.put("amount", amount.getText().toString());
 				Report.put("merchant", merchant.getText().toString());
 				Report.put("date", date.getText().toString());
@@ -123,6 +126,8 @@ public class Add_new extends Activity {
 					
 				}else{
 				
+					
+					
 					mCreateAndSaveFile("report.txt",Report.toString());
 					Toast.makeText(Add_new.this,"offline",Toast.LENGTH_SHORT).show();
 				}
