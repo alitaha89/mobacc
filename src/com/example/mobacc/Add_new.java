@@ -2,10 +2,12 @@ package com.example.mobacc;
 
 
 
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -17,7 +19,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
+
 
  
 public class Add_new extends Activity {
@@ -41,45 +43,28 @@ public class Add_new extends Activity {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-
+	  ReadFile rFile = new ReadFile();
+      rFile.callReadFile();
   } 
 
-  public void mCreateAndSaveFile(String params, String mJsonResponse) {
+  public void mCreateAndSaveFile(String mJsonResponse) {
+	  
 	    try {
-	        FileWriter file = new FileWriter(getFilesDir().getPath()+ getApplicationContext().getPackageName() + "/" + params);
+	        FileWriter file = new FileWriter(getFilesDir().getPath()+ getApplicationContext().getPackageName() + "/report2.txt");
 	        file.append(mJsonResponse);
-	        file.flush();
-	        file.close();
+	      // file.delete();
+	     file.flush();
+	      file.close();
 	    } catch (IOException e) {
 	        e.printStackTrace();
 	    }
 	}
-  public boolean isNetworkOnline() {
-	return true;
-	 /*  boolean status=false;
-	    try{
-	        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-	        NetworkInfo netInfo = cm.getNetworkInfo(0);
-	        if (netInfo != null && netInfo.getState()==NetworkInfo.State.CONNECTED) {
-	            status= true;
-	        }else {
-	            netInfo = cm.getNetworkInfo(1);
-	            if(netInfo!=null && netInfo.getState()==NetworkInfo.State.CONNECTED)
-	                status= true;
-	        }
-	    }catch(Exception e){
-	        e.printStackTrace();  
-	        return false;
-	    }
-	    return status;
-*/
-	    }
+ 
   
   public void sendPost(String spinner) throws UnsupportedEncodingException{
 	  
-	 // 	query = URLEncoder.encode("apples oranges", "utf-8");
 	   
-	    new RequestTask().execute("http://www.linteractif.com/mobacc/add.php?spinner="+URLEncoder.encode(spinner, "utf-8"));
+	    new RequestTask().execute(URLEncoder.encode(spinner, "utf-8"));
   }
   /*public void mReadJsonData(String params) {
 	    try {
@@ -120,17 +105,17 @@ public class Add_new extends Activity {
 				Report.put("date", date.getText().toString());
 				Report.put("description", description.getText().toString());
 				
-				if(isNetworkOnline()){
-					
+				
+				//	Toast.makeText(Add_new.this,"online",Toast.LENGTH_SHORT).show();
 					sendPost(Report.toString()) ;
 					
-				}else{
+			
 				
 					
+				//	Toast.makeText(Add_new.this,"offline",Toast.LENGTH_SHORT).show();
+					//mCreateAndSaveFile(Report.toString());
 					
-					mCreateAndSaveFile("report.txt",Report.toString());
-					Toast.makeText(Add_new.this,"offline",Toast.LENGTH_SHORT).show();
-				}
+				
 				
 			} catch (Exception  e) {
 		        // TODO Auto-generated catch block
