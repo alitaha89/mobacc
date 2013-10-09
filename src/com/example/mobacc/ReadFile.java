@@ -14,28 +14,31 @@ import android.util.Log;
  
 public class ReadFile extends AsyncTask<String, Void, Void> {
  
-	// String jSonval="";
+	 String jSonval="";
+	 String FileLocation = "/data/data/com.example.mobacc/report.txt";
+	 
 	 protected Void doInBackground(String... params) {
  
-		File file = new File("/data/data/com.example.mobacc/r.txt");
+		File file = new File(FileLocation);
  
 		try{
 			FileInputStream fis = new FileInputStream(file);
-			System.out.println("Total file size to read (in bytes) : "+ fis.available());
+			//System.out.println("Total file size to read (in bytes) : "+ fis.available());
  
 			int content;
-			/*while ((content = fis.()) != -1) {
-				// convert to char and display it
-				System.out.print((char) content);
-				jSonval += (char) content;
-			}*/
+			 while ((content = fis.read()) != -1) {
+				
+				 // convert to char 
+			 	jSonval += (char) content;
+			 	
+			 } 
 			
-			  Log.i ("info", "readfile");
-			  Log.i ("info", fis.toString());
-		 new RequestTask().execute(fis.toString());
-		
-			fis.close();
-			file.delete();
+			  Log.i ("info read2", jSonval.toString());
+			  new RequestTask().execute(jSonval.toString(),"ReadFile");
+			
+			  fis.close();
+					
+				
 		//	SaveFile ss = new SaveFile();
         //	ss.execute(uri[0]);
  
@@ -68,11 +71,14 @@ public class ReadFile extends AsyncTask<String, Void, Void> {
 		            });
 		        }
 		    };
-		    timer.schedule(doAsynchronousTask, 0, 50000); //execute in every 50000 ms
+		    timer.schedule(doAsynchronousTask, 0, 7000); //execute in every 50000 ms
 		}
 
 	 
-	 
-	 
+	 public void deleteFile(){
+		    
+		 File file = new File(FileLocation);
+		 file.delete();
+	    }
 	 
 } 

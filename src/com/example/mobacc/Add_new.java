@@ -1,10 +1,6 @@
 package com.example.mobacc;
 
 
-
-
-import java.io.FileWriter;
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
@@ -47,24 +43,13 @@ public class Add_new extends Activity {
       rFile.callReadFile();
   } 
 
-  public void mCreateAndSaveFile(String mJsonResponse) {
-	  
-	    try {
-	        FileWriter file = new FileWriter(getFilesDir().getPath()+ getApplicationContext().getPackageName() + "/report2.txt");
-	        file.append(mJsonResponse);
-	      // file.delete();
-	     file.flush();
-	      file.close();
-	    } catch (IOException e) {
-	        e.printStackTrace();
-	    }
-	}
+ 
  
   
   public void sendPost(String spinner) throws UnsupportedEncodingException{
 	  
 	   
-	    new RequestTask().execute(URLEncoder.encode(spinner, "utf-8"));
+	    new RequestTask().execute(URLEncoder.encode(spinner, "utf-8"),"Add_new");
   }
   /*public void mReadJsonData(String params) {
 	    try {
@@ -105,25 +90,12 @@ public class Add_new extends Activity {
 				Report.put("date", date.getText().toString());
 				Report.put("description", description.getText().toString());
 				
-				
-				//	Toast.makeText(Add_new.this,"online",Toast.LENGTH_SHORT).show();
-					sendPost(Report.toString()) ;
-					
-			
-				
-					
-				//	Toast.makeText(Add_new.this,"offline",Toast.LENGTH_SHORT).show();
-					//mCreateAndSaveFile(Report.toString());
-					
-				
-				
+				sendPost(Report.toString()) ;
+
 			} catch (Exception  e) {
 		        // TODO Auto-generated catch block
 		        e.printStackTrace();
 		    }
-		 
-		 
-	  //  Toast.makeText(Add_new.this,"Result : " + "\nSpinner 2 : "+ String.valueOf(category.getSelectedItem()),Toast.LENGTH_SHORT).show();
 	  }
  
 	});
