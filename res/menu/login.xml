@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
@@ -7,3 +8,14 @@
         android:title="@string/action_settings"/>
 
 </menu>
+=======
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/action_settings"/>
+
+</menu>
+>>>>>>> 8bb5c9ea6f3b5c14aa85f57b34b22f27ca1044bf
