@@ -7,12 +7,10 @@
     <string name="title_activity_splash">Splash</string>
     <string name="title_activity_menu">Menu</string>
     <string name="title_activity_add_new">Add_new</string>
-	
-
-        <string name="select">Choose a categorie</string>
+    <string name="select">Choose a categorie</string>
     <string name="select2">Choose an item</string>
     <string name="button_label">Submit</string>
- 
+
     <string-array name="categories">
         <item>Cat1</item>
         <item>Cat2</item>
@@ -23,8 +21,12 @@
         <item>Cat7</item>
         <item>Cat8</item>
     </string-array>
+
     <string name="Merchant">Merchant</string>
     <string name="Amount">Amount</string>
     <string name="Description">Description</string>
-    
+    <string name="title_activity_login">Login</string>
+    <string name="logout">LOGOUT</string>
+    <string name="title_activity_register">Register</string>
+
 </resources>

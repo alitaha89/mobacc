@@ -15,14 +15,28 @@ public class Welcome extends Activity{
 			public void run(){
 				try{
 					
-					sleep(5000);
+					sleep(500);
 					
 				} catch (InterruptedException e){
 					e.printStackTrace();
 				}finally{
 					
+					
+					
+					ClassFile rf = new ClassFile();
+					String id = rf.RdFile("/data/data/com.example.mobacc/login.txt");
+					
+				if(id!=null  && !id.equals("") && id!="false"){
+					
 					Intent openStartingPoint = new Intent("com.example.mobacc.MENU");
 					startActivity(openStartingPoint);
+					
+				}else{
+					Intent openStartingPoint = new Intent("com.example.mobacc.LOGIN");
+					startActivity(openStartingPoint);
+					
+				}
+					
 					
 				}
 				

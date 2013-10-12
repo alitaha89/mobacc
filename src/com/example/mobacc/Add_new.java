@@ -1,24 +1,23 @@
 package com.example.mobacc;
 
 
-
-
-import java.io.FileWriter;
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 
 
 import org.json.JSONException;
 import org.json.JSONObject;
 import android.app.Activity;
+import android.content.Context;
 
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 
  
@@ -36,50 +35,26 @@ public class Add_new extends Activity {
   public void onCreate(Bundle savedInstanceState) {
 	super.onCreate(savedInstanceState);
 	setContentView(R.layout.add_new);
-
+	
 	try {
 		addListenerOnButton();
 	} catch (JSONException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-	  ReadFile rFile = new ReadFile();
-      rFile.callReadFile();
+	ReadDataFile rFile = new ReadDataFile();
+      rFile.periodiqSendData();
   } 
 
-  public void mCreateAndSaveFile(String mJsonResponse) {
-	  
-	    try {
-	        FileWriter file = new FileWriter(getFilesDir().getPath()+ getApplicationContext().getPackageName() + "/report2.txt");
-	        file.append(mJsonResponse);
-	      // file.delete();
-	     file.flush();
-	      file.close();
-	    } catch (IOException e) {
-	        e.printStackTrace();
-	    }
-	}
+ 
  
   
   public void sendPost(String spinner) throws UnsupportedEncodingException{
 	  
 	   
-	    new RequestTask().execute(URLEncoder.encode(spinner, "utf-8"));
+	    new Add_newAction().execute(spinner,"Add_new");
   }
-  /*public void mReadJsonData(String params) {
-	    try {
-	        File f = new File("/data/data/" + getPackageName() + "/" + params);
-	        FileInputStream is = new FileInputStream(f);
-	        int size = is.available();
-	        byte[] buffer = new byte[size];
-	        is.read(buffer);
-	        is.close();
-	        String mResponse = new String(buffer);
-	    } catch (IOException e) {
-	        // TODO Auto-generated catch block
-	        e.printStackTrace();
-	    }
-	}*/
+
   public void addListenerOnButton() throws JSONException {
  
 	Report = new JSONObject();
@@ -104,28 +79,36 @@ public class Add_new extends Activity {
 				Report.put("merchant", merchant.getText().toString());
 				Report.put("date", date.getText().toString());
 				Report.put("description", description.getText().toString());
-				
-				
-				//	Toast.makeText(Add_new.this,"online",Toast.LENGTH_SHORT).show();
-					sendPost(Report.toString()) ;
-					
-			
-				
-					
-				//	Toast.makeText(Add_new.this,"offline",Toast.LENGTH_SHORT).show();
-					//mCreateAndSaveFile(Report.toString());
-					
-				
-				
+				if(isOnline()){
+				sendPost(Report.toString()) ;
+		  }else{
+				 Toast.makeText(Add_new.this, "saved localy",Toast.LENGTH_LONG).show();
+				 SaveFile ss = new SaveFile();
+			     ss.execute(Report.toString());
+			 }
 			} catch (Exception  e) {
 		        // TODO Auto-generated catch block
 		        e.printStackTrace();
 		    }
+		  
+		  
+		  amount.setText("");
+		  merchant.setText("");
+		  date.setText("");
+		  description.setText("");
 		 
-		 
-	  //  Toast.makeText(Add_new.this,"Result : " + "\nSpinner 2 : "+ String.valueOf(category.getSelectedItem()),Toast.LENGTH_SHORT).show();
 	  }
  
 	});
+  }
+  public boolean isOnline() {
+      ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+      NetworkInfo netInfo = cm.getActiveNetworkInfo();
+
+      if (netInfo != null && netInfo.isConnectedOrConnecting()) 
+      {
+          return true;
+      }
+      return false;
   }
 }

@@ -2,6 +2,7 @@ package com.example.mobacc;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.net.URLEncoder;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
@@ -16,39 +17,43 @@ import android.util.Log;
 
 
 class RequestTask extends AsyncTask<String, String, String>{
-
-	
-	
-	
-	
-
 	
     @Override
     protected String doInBackground(String... uri) {
         HttpClient httpclient = new DefaultHttpClient();
         HttpResponse response;
         String responseString = null;
-       
+        
         try {
-            response = httpclient.execute(new HttpGet("http://www.linteractif.com/mobacc/add.php?spinner="+uri[0]));
+        	
+            response = httpclient.execute(new HttpGet("http://www.linteractif.com/mobacc/add.php?data="+URLEncoder.encode(uri[0], "utf-8")));
+           
+           
             StatusLine statusLine = response.getStatusLine();
             if(statusLine.getStatusCode() == HttpStatus.SC_OK){
+            
                 ByteArrayOutputStream out = new ByteArrayOutputStream();
                 response.getEntity().writeTo(out);
                 responseString = out.toString() ;
                 out.close();
-                Log.i ("info", "else0");
-
-               // responseString = out.toString();
+               // Log.i ("info", "else0");
+                if(uri[1]=="ReadFile"){
+                	
+                	ClassFile rf = new ClassFile();
+               	 	rf.deleteFile("/data/data/com.example.mobacc/report.txt");
+                	
+                }
+               
             } else{
                 //Closes the connection.
             	Log.i ("info", "else");
-
-              	SaveFile ss = new SaveFile();
-             	ss.execute(uri[0]);
+            	if(uri[1]!="ReadFile"){
+	              	SaveFile ss = new SaveFile();
+	             	ss.execute(uri[0]);
+            	}
             	
                 response.getEntity().getContent().close();
-                
+                return "false";
                 
              
                 
@@ -59,15 +64,20 @@ class RequestTask extends AsyncTask<String, String, String>{
             //TODO Handle problems..
         	Log.i ("info", "else1");
 
-        	SaveFile ss = new SaveFile();
-         	ss.execute(uri[0]);
-        	
+        	if(uri[1]!="ReadFile"){
+              	SaveFile ss = new SaveFile();
+             	ss.execute(uri[0]);
+        	}
+         	 return "false";
         	
         } catch (IOException e) {
             //TODO Handle problems..
         	 
-         	SaveFile ss = new SaveFile();
-       	ss.execute(uri[0]);
+        	if(uri[1]!="ReadFile"){
+              	SaveFile ss = new SaveFile();
+             	ss.execute(uri[0]);
+        	}
+        return "false";
         }
         return responseString;
     }
@@ -77,4 +87,5 @@ class RequestTask extends AsyncTask<String, String, String>{
         super.onPostExecute(result);
         //Do anything with response..
     }
+   
 }

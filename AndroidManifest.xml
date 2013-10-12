@@ -3,10 +3,12 @@
     package="com.example.mobacc"
     android:versionCode="1"
     android:versionName="1.0" >
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-<uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="17" />
@@ -18,7 +20,8 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.example.mobacc.Welcome"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,8 +38,39 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.example.mobacc.Login"
+            android:label="@string/app_name"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="com.example.mobacc.LOGIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.mobacc.Logout"
+            android:label="@string/app_name"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="com.example.mobacc.LOGOUT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name="com.example.mobacc.Add_new"
             android:label="@string/title_activity_add_new" >
+        </activity>
+        
+        <activity
+            android:name="com.example.mobacc.Register"
+            android:label="@string/app_name"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="com.example.mobacc.REGISTER" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         
     </application>
