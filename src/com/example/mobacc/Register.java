@@ -1,7 +1,11 @@
 package com.example.mobacc;
 
 
+import java.lang.reflect.Array;
 import java.util.concurrent.ExecutionException;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 import android.app.Activity;
 import android.content.Context;
@@ -17,7 +21,7 @@ import android.widget.Toast;
 
 
 public class Register extends Activity {
- 
+EditText txtName;
  EditText txtUserName;
  EditText txtPassword;
  Button btnRegister;
@@ -29,7 +33,8 @@ public class Register extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
         
-       txtUserName=(EditText)this.findViewById(R.id.txtUname);
+        txtName=(EditText)this.findViewById(R.id.txtname);
+        txtUserName=(EditText)this.findViewById(R.id.txtUname);
         txtPassword=(EditText)this.findViewById(R.id.txtPwd);
         btnRegister=(Button)this.findViewById(R.id.btnRegister);
         btnRegister.setOnClickListener(new OnClickListener() {
@@ -39,15 +44,23 @@ public class Register extends Activity {
     // TODO Auto-generated method stub
 	 
 			
-    if(!txtPassword.getText().toString().equals("") && !txtUserName.getText().toString().equals("")){
+    if(!txtName.getText().toString().equals("") && !txtUserName.getText().toString().equals("") && !txtPassword.getText().toString().equals("")){
     	
 
     		
 			if(isOnline()){
 			
+    		String returns="";
+    		String status="";
+    		String desc="";
     		String id="";
 			try {
-				id = new RegisterAction().execute(txtUserName.getText().toString(),txtPassword.getText().toString()).get();
+				returns = new RegisterAction().execute(txtName.getText().toString(),txtUserName.getText().toString(),txtPassword.getText().toString()).get();
+				JSONArray arrayReturns = new JSONArray(returns);
+				
+				status = (String) arrayReturns.get(0);
+				desc = (String) arrayReturns.get(1);
+				id = (String) arrayReturns.get(2);
 				
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
@@ -55,17 +68,20 @@ public class Register extends Activity {
 			} catch (ExecutionException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 			
-			
-			 if(id!=null && !id.equals("false") && !id.equals("")){
+			 if(status!=null && !status.equals("false") && !status.equals("") ){
 				 
+				 Toast.makeText(Register.this, desc,Toast.LENGTH_LONG).show();
 				 ClassFile sf = new ClassFile();
 				 sf.SaveLoginFile(id);
 				 Intent openStartingPoint = new Intent("com.example.mobacc.MENU");
 				startActivity(openStartingPoint);
 			 }else{
-				 Toast.makeText(Register.this, "error occured",Toast.LENGTH_LONG).show();
+				 Toast.makeText(Register.this, desc,Toast.LENGTH_LONG).show();
 				 
 			 }
 			 }else{

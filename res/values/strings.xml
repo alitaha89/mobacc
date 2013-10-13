@@ -6,7 +6,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_splash">Splash</string>
     <string name="title_activity_menu">Menu</string>
-    <string name="title_activity_add_new">Add_new</string>
+    <string name="title_activity_add_new">Add new expence</string>
     <string name="select">Choose a categorie</string>
     <string name="select2">Choose an item</string>
     <string name="button_label">Submit</string>

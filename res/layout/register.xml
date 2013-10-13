@@ -2,10 +2,26 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:stretchColumns="1">
-     
+ 
 <TableRow> 
  <TextView 
- android:text="User Name: " 
+android:text="Name" 
+ android:id="@+id/TextView00" 
+ android:layout_width="wrap_content" 
+ android:layout_height="wrap_content">
+ </TextView>
+ 
+ <EditText 
+ android:text="" 
+ android:id="@+id/txtname" 
+ android:layout_width="fill_parent" 
+ android:layout_height="wrap_content">
+ </EditText>
+</TableRow>    
+    
+<TableRow> 
+ <TextView 
+android:text="User Name" 
  android:id="@+id/TextView01" 
  android:layout_width="wrap_content" 
  android:layout_height="wrap_content">

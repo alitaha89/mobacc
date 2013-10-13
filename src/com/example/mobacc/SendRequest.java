@@ -20,7 +20,7 @@ public class SendRequest {
 		
         try {
         	
-            response = httpclient.execute(new HttpGet("http://192.168.5.106/"+url));
+            response = httpclient.execute(new HttpGet("http://192.168.5.107/"+url));
 
 
             StatusLine statusLine = response.getStatusLine();
@@ -30,7 +30,6 @@ public class SendRequest {
                 response.getEntity().writeTo(out);
                 responseString = out.toString() ;
                 out.close();
-                System.out.println("send request"+"http://192.168.5.106/"+url+" with response:"+responseString);
                 return responseString;
                
             } else{

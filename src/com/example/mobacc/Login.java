@@ -3,6 +3,9 @@ package com.example.mobacc;
 
 import java.util.concurrent.ExecutionException;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -43,31 +46,43 @@ public class Login extends Activity {
     if(!txtPassword.getText().toString().equals("") && !txtUserName.getText().toString().equals("")){
     	
 
-    		
-			
-			
-    		String id="";
     		if(isOnline()){
+    			
+    			String returns="";
+        		String status="";
+        		String desc="";
+        		String id="";
+        		
 			try {
-				id = new LoginAction().execute(txtUserName.getText().toString(),txtPassword.getText().toString()).get();
-				System.out.println("loginR"+id);
+
+				returns = new LoginAction().execute(txtUserName.getText().toString(),txtPassword.getText().toString()).get();
+				JSONArray arrayReturns = new JSONArray(returns);
+				
+				status = (String) arrayReturns.get(0);
+				desc = (String) arrayReturns.get(1);
+				id = (String) arrayReturns.get(2);
+				
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (ExecutionException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 			
 			
-			 if(id!=null && !id.equals("false") && !id.equals("")){
-				 
+			if(status!=null && !status.equals("false") && !status.equals("") ){
+				
+				Toast.makeText(Login.this, desc,Toast.LENGTH_LONG).show();
 				 ClassFile sf = new ClassFile();
 				 sf.SaveLoginFile(id);
 				 Intent openStartingPoint = new Intent("com.example.mobacc.MENU");
 				startActivity(openStartingPoint);
 			 }else{
-				 Toast.makeText(Login.this, "Invalid Login",Toast.LENGTH_LONG).show();
+				 Toast.makeText(Login.this, desc,Toast.LENGTH_LONG).show();
 				 
 			 }
     		} else{
