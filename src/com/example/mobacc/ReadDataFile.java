@@ -12,12 +12,11 @@ import android.os.Handler;
 public class ReadDataFile extends AsyncTask<String, Void, Void> {
  
 	 String jSonval="";
-	 String FileLocation =  "/data/data/com.example.mobacc/report.txt";
 	 
 	 protected Void doInBackground(String... params) {
  
 		 ClassFile rfile = new ClassFile();
-		jSonval = rfile.RdFile(FileLocation);
+		jSonval = rfile.ReadDataFile();
 		//System.out.println("jSonval : "+ jSonval);
 		 
 		new Add_newAction().execute(jSonval.toString(),"ReadFile");

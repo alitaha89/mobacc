@@ -17,35 +17,41 @@ public class SendRequest {
       HttpResponse response;
       String responseString = null;
 	public String sendRequest(String url){
-	
+		
         try {
         	
-            response = httpclient.execute(new HttpGet(url));
-         
+            response = httpclient.execute(new HttpGet("http://192.168.5.106/"+url));
+
+
             StatusLine statusLine = response.getStatusLine();
             if(statusLine.getStatusCode() == HttpStatus.SC_OK){
-            
+            	
                 ByteArrayOutputStream out = new ByteArrayOutputStream();
                 response.getEntity().writeTo(out);
                 responseString = out.toString() ;
                 out.close();
+                System.out.println("send request"+"http://192.168.5.106/"+url+" with response:"+responseString);
                 return responseString;
                
             } else{
                 //Closes the connection.
+            	System.out.println("request  send error");
                 response.getEntity().getContent().close();
                 return "false";
             
             }
         } catch (ClientProtocolException e) {
+        	System.out.println("ClientProtocolException");
             //TODO Handle problems..
         	return "false";
         	
         } catch (IOException e) {
+        	System.out.println("IOException");
             //TODO Handle problems..
 
         	return "false";
         }
+        
 	
 	}
 

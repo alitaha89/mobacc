@@ -22,9 +22,8 @@ public class Welcome extends Activity{
 				}finally{
 					
 					
-					
-					ClassFile rf = new ClassFile();
-					String id = rf.RdFile("/data/data/com.example.mobacc/login.txt");
+					 ClassFile rf = new ClassFile();
+					String id = rf.getUserId();
 					
 				if(id!=null  && !id.equals("") && id!="false"){
 					

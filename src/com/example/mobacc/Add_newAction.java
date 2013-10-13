@@ -5,7 +5,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 
-import android.content.Context;
 import android.os.AsyncTask;
 
 
@@ -13,17 +12,17 @@ import android.os.AsyncTask;
 class Add_newAction extends AsyncTask<String, String, String>{
 	
     @Override
-    protected String doInBackground(String... uri) {
+    protected  String doInBackground(String... uri) {
        
         	
         	SendRequest snd = new SendRequest();
-        
-         
            
             try {
             	
-            
-				if(uri[0] != null && !uri[0].equals("") && snd.sendRequest("http://www.linteractif.com/mobacc/add.php?data="+URLEncoder.encode(uri[0], "utf-8")).equals("false") ){
+
+            	ClassFile rf=	new ClassFile();
+
+				if(uri[0] != null && !uri[0].equals("") && snd.sendRequest("mobacc/api/depence.php?data="+URLEncoder.encode(uri[0], "utf-8")).equals("false") ){
 				
 				   return "true";
 				   
@@ -36,8 +35,10 @@ class Add_newAction extends AsyncTask<String, String, String>{
 					}else{
 						
 						
-						ClassFile rf=	new ClassFile();
-						rf.deleteFile("/data/data/com.example.mobacc/report.txt");
+						
+						
+						
+						rf.deleteDataFile();
 					}
       
 				}

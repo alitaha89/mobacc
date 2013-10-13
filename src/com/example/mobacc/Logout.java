@@ -15,7 +15,7 @@ public class Logout extends Activity{
 	 public void logout(){
 	
 		 ClassFile rf = new ClassFile();
-	 	rf.deleteFile("/data/data/com.example.mobacc/login.txt");
+	 	rf.deleteLoginFile();
 	 	
 	 	Intent openStartingPoint = new Intent("com.example.mobacc.LOGIN");
 		startActivity(openStartingPoint);

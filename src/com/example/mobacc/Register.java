@@ -48,7 +48,7 @@ public class Register extends Activity {
     		String id="";
 			try {
 				id = new RegisterAction().execute(txtUserName.getText().toString(),txtPassword.getText().toString()).get();
-				System.out.println("RegisterActionR"+id);
+				
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -57,11 +57,11 @@ public class Register extends Activity {
 				e.printStackTrace();
 			}
 			
-			System.out.println("lRegisterActionR2"+id);
+			
 			 if(id!=null && !id.equals("false") && !id.equals("")){
 				 
-				 SFile sf = new SFile();
-				 sf.SvFile("/data/data/com.example.mobacc/login.txt", id);
+				 ClassFile sf = new ClassFile();
+				 sf.SaveLoginFile(id);
 				 Intent openStartingPoint = new Intent("com.example.mobacc.MENU");
 				startActivity(openStartingPoint);
 			 }else{
