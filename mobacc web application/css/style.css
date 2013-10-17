@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 
-
+body,html{font-family:Arial, Helvetica, sans-serif;}
 img{border:0;}
 #login-erro-placement{color:#d81823;font-family:Tahoma,Geneva,sans-serif;font-size:12px;font-weight:bold;}
 
@@ -54,9 +54,9 @@ a{text-decoration:none;color:inherit;}
 
 
 .form{font-family:Tahoma,Geneva,sans-serif;font-size:12px;}
-.form input.input-text{width:500px;height:30px;padding-left:15px;background-color:#efefef;border:1px solid #efefef;border-right:1px solid #cfcece;}
+.form input.input-text{width:200px;height:30px;padding-left:15px;background-color:#efefef;border:1px solid #efefef;border-right:1px solid #cfcece;}
 .form input.input-text:hover{border:1px solid #cfcece;}
-.form select{width:515px;height:30px;background-color:#efefef;border:1px solid #efefef;border-left:1px solid #cfcece;padding:5px;}
+.form select{width:115px;height:30px;background-color:#efefef;border:1px solid #efefef;border-left:1px solid #cfcece;padding:5px;}
 .form textarea{width:500px;height:145px;padding-left:15px;padding-top:10px;background-color:#efefef;border:1px solid #efefef;border-left:1px solid #cfcece;}
 .form .btn{height:33px;padding:0 40px;line-height:30px;background-color:#231f20;color:#ffffff;font-family:Tahoma,Geneva,sans-serif;font-size:12px;cursor:pointer;border:0;}
 .form .btn:hover{opacity:0.9}
@@ -113,3 +113,5 @@ audio{display:none;}
 #pagination{cursor:default;float:left;}
 #pagination a:hover{color:red;}
 #pagination:hover{background-color:#efefef;}
+
+#welcome-box{padding:20px;background:#cccccc;}

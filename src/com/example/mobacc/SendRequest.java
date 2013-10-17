@@ -20,7 +20,7 @@ public class SendRequest {
 		
         try {
         	
-            response = httpclient.execute(new HttpGet("http://192.168.5.107/"+url));
+            response = httpclient.execute(new HttpGet("http://169.254.100.101/"+url));
 
 
             StatusLine statusLine = response.getStatusLine();

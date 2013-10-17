@@ -1,7 +1,6 @@
 package com.example.mobacc;
 
 
-import java.lang.reflect.Array;
 import java.util.concurrent.ExecutionException;
 
 import org.json.JSONArray;

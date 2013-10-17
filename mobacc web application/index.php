@@ -1,8 +1,15 @@
 <?php
 require_once('header.php');
-
-
-
+/*
+$i=0;
+while($i<1500){
+	
+	
+	
+	$qeury = "insert into depence set cat='cat".rand(1,6)."' ,amount='".rand(500,100000)."', date='".date('Y-m-d',(strtotime(date('Y-m-d'))+($i*20000)))."'";
+	mysql_query($qeury);
+	$i++;
+}*/
 
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -10,11 +17,14 @@ require_once('header.php');
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="css/style.css" rel="stylesheet" type="text/css" />
-
+<link href="css/jquery-ui-1.8.12.custom.css" rel="stylesheet" type="text/css" />
 <title>MOBACC</title>
 <script src="Scripts/jquery-1.7.min.js"  type="text/javascript" language="javascript"></script>
 <script src="Scripts/jquery.validate.min.js" type="text/javascript" language="javascript"></script>
-
+<script type="text/javascript" language="javascript" src="Scripts/jquery-ui-1.8.12.custom.min.js"></script>
+<script type="text/javascript" language="javascript" src="Scripts/highcharts.js"></script>
+ 
+                             
 
 <?php 
 
@@ -39,7 +49,7 @@ if(!login())
  
 
 
-
+var colorRadialized = false;
 
 
 $(document).ready(function(){
@@ -180,8 +190,8 @@ body
 <div id="menu">
 
 <a class="primary-menu clk" href="ajax_home.php">HOME</a>
-<a class="primary-menu clk" href="ajax_client.php">STATISTICS</a>
-<a class="primary-menu clk" href="ajax_client.php">REPORTS</a>
+<a class="primary-menu clk" href="ajax_statistics.php">STATISTICS</a>
+<a class="primary-menu clk" href="ajax_reports.php">REPORTS</a>
 <a class="primary-menu" href="logout.php">LOGOUT!</a>
 
 
