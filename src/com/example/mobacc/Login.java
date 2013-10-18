@@ -78,7 +78,7 @@ public class Login extends Activity {
 				
 				Toast.makeText(Login.this, desc,Toast.LENGTH_LONG).show();
 				 ClassFile sf = new ClassFile();
-				 sf.SaveLoginFile(id);
+				 sf.SaveLoginFile(id.replace("\"", ""));
 				 Intent openStartingPoint = new Intent("com.example.mobacc.MENU");
 				startActivity(openStartingPoint);
 			 }else{

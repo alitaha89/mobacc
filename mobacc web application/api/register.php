@@ -1,5 +1,5 @@
 <?php
-session_start();sleep(4);
+session_start();
 include('../Connections/rs.php');
 require_once('../functions.php');
 $return = array();

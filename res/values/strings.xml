@@ -12,14 +12,11 @@
     <string name="button_label">Submit</string>
 
     <string-array name="categories">
-        <item>Cat1</item>
-        <item>Cat2</item>
-        <item>Cat3</item>
-        <item>Cat4</item>
-        <item>Cat5</item>
-        <item>Cat6</item>
-        <item>Cat7</item>
-        <item>Cat8</item>
+        <item>Food</item>
+        <item>Transport</item>
+        <item>Restaurant</item>
+        <item>Entertainment</item>
+        <item>Other</item>
     </string-array>
 
     <string name="Merchant">Merchant</string>

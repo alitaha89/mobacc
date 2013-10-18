@@ -21,9 +21,9 @@ a{text-decoration:none;color:inherit;}
 .ddm a:hover{color:#e8000a;}
 
 .page-title{border-spacing:0;border-collapse:collapse;height:45px;width:1200px;table-layout:fixed;padding:0px;margin-top:40px;}
-.page-title tr td{background:url(../img/title-middle-bg2.png) repeat-x bottom;}
+.page-title tr td{background:url(../img/title-middle-bg.png) repeat-x bottom;}
 .page-title tr td:first-child{color:#ffffff;font-family:Tahoma,Geneva,sans-serif;font-size:18px;background-color:#231f20;padding:0 25px;background-image:none;}
-.page-title tr td:last-child{background:url(../img/title-left-bg.png) no-repeat bottom;width:150px;}
+.page-title tr td:last-child{background:url(../img/title-right-bg.png) no-repeat bottom;width:150px;}
 
 .grid{width:1198px;text-align:center;border-top:1px solid #cfcece;border-left:1px solid #cfcece;font-family:Tahoma,Geneva,sans-serif;font-size:12px;border-spacing:0;border-collapse:collapse;}
 .grid tr td {border-bottom:1px solid #cfcece;border-right:1px solid #cfcece;padding:5px;}
@@ -35,7 +35,7 @@ a{text-decoration:none;color:inherit;}
 .grid-edit{background:url(../img/edit.png) no-repeat 12px 8px;}
 .grid-add{background:url(../img/add.png) no-repeat 12px 10px;}
 .grid-del{background:url(../img/del.png) no-repeat 12px 10px;}
-.grid-footer div{padding:0 33px;height:30px;float:right;border-left:1px solid #d7d7d7;cursor:pointer;}
+.grid-footer div{padding:0 33px;height:30px;float:left;border-left:1px solid #d7d7d7;cursor:pointer;}
 .grid-footer div:hover{background-color:#d7d7d7;}
 .grid-footer.fixed{position:fixed;bottom:0px;width:1198px;}
 .grid-footer.force-nonfixed{position:initial !important;bottom:0px;width:1198px;}
@@ -57,7 +57,7 @@ a{text-decoration:none;color:inherit;}
 .form input.input-text{width:200px;height:30px;padding-left:15px;background-color:#efefef;border:1px solid #efefef;border-right:1px solid #cfcece;}
 .form input.input-text:hover{border:1px solid #cfcece;}
 .form select{width:115px;height:30px;background-color:#efefef;border:1px solid #efefef;border-left:1px solid #cfcece;padding:5px;}
-.form textarea{width:500px;height:145px;padding-left:15px;padding-top:10px;background-color:#efefef;border:1px solid #efefef;border-left:1px solid #cfcece;}
+.form textarea{width:200px;height:145px;padding-left:15px;padding-top:10px;background-color:#efefef;border:1px solid #efefef;border-left:1px solid #cfcece;}
 .form .btn{height:33px;padding:0 40px;line-height:30px;background-color:#231f20;color:#ffffff;font-family:Tahoma,Geneva,sans-serif;font-size:12px;cursor:pointer;border:0;}
 .form .btn:hover{opacity:0.9}
 

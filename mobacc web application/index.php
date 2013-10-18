@@ -6,7 +6,7 @@ while($i<1500){
 	
 	
 	
-	$qeury = "insert into depence set cat='cat".rand(1,6)."' ,amount='".rand(500,100000)."', date='".date('Y-m-d',(strtotime(date('Y-m-d'))+($i*20000)))."'";
+	$qeury = "insert into expence set cat='cat".rand(1,6)."' ,amount='".rand(500,100000)."', date='".date('Y-m-d',(strtotime(date('Y-m-d'))+($i*20000)))."'";
 	mysql_query($qeury);
 	$i++;
 }*/
@@ -189,10 +189,11 @@ body
 
 <div id="menu">
 
-<a class="primary-menu clk" href="ajax_home.php">HOME</a>
-<a class="primary-menu clk" href="ajax_statistics.php">STATISTICS</a>
-<a class="primary-menu clk" href="ajax_reports.php">REPORTS</a>
-<a class="primary-menu" href="logout.php">LOGOUT!</a>
+<a class="primary-menu clk" href="ajax_home.php">Home</a>
+<a class="primary-menu clk" href="ajax_expence.php">Expence</a>
+<a class="primary-menu clk" href="ajax_statistics.php">Statistics</a>
+
+<a class="primary-menu" href="logout.php">Logout!</a>
 
 
     

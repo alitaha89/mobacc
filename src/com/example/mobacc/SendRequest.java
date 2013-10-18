@@ -20,8 +20,8 @@ public class SendRequest {
 		
         try {
         	
-            response = httpclient.execute(new HttpGet("http://169.254.100.101/"+url));
-
+            response = httpclient.execute(new HttpGet("http://169.254.221.20/"+url));
+           // System.out.println("http://169.254.221.20/"+url);
 
             StatusLine statusLine = response.getStatusLine();
             if(statusLine.getStatusCode() == HttpStatus.SC_OK){

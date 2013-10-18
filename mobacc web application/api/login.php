@@ -14,7 +14,7 @@ if(isset($_REQUEST['username']) && isset($_REQUEST['pass'])){
 				
 				dologin( $data_login['id']);
 			}
-			echoJson(array("true","Welcome ".ucwords($data_login['name']),'"'.$data_login['id'].'"'));
+			echoJson(array("true","Welcome ".ucwords($data_login['name']),$data_login['id']));
 			
 		}else{
 			

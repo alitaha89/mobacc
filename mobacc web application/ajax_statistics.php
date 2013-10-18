@@ -33,7 +33,7 @@ if(isset($_GET['description']) and !empty($_GET['description'])){
 	
 }
 
-$queryStat = "select date,SUM(amount) as amnt from depence where userid=$userid $quering group by date ";
+$queryStat = "select date,SUM(amount) as amnt from expence where userid=$userid $quering group by date ";
 $rsStat = mysql_query($queryStat);
 $dataStat = mysql_fetch_assoc($rsStat);
 $stat =$dataStat['amnt'];
@@ -55,13 +55,13 @@ while($dataStat = mysql_fetch_assoc($rsStat)){
 	$stat.=",".$dataStat['amnt'];
 	$oldtime=$timenow; 
 }
-$queryTotal = "select SUM(amount) as amnt from depence where userid=$userid $quering ";
+$queryTotal = "select SUM(amount) as amnt from expence where userid=$userid $quering ";
 $rsTotal = mysql_query($queryTotal);
 $dataTotal = mysql_fetch_assoc($rsTotal);
 $total = $dataTotal['amnt'];
 
 $statCat = "";
-$queryStatCat = "select cat,SUM(amount) as amnt from depence where userid=$userid $quering group by cat ";
+$queryStatCat = "select cat,SUM(amount) as amnt from expence where userid=$userid $quering group by cat ";
 $rsStatCat = mysql_query($queryStatCat);
 while($dataStatCat = mysql_fetch_assoc($rsStatCat)){
 	$statCat.="['".$dataStatCat['cat'].": [ ".$dataStatCat['amnt']." L.L ] ',".round($dataStatCat['amnt']*100/$total,2)."],";
@@ -228,7 +228,13 @@ $('#dateTo').datepicker({changeYear:true, changeMonth:true,yearRange: '2013:c+2'
                         <td><input type="text" name="dateTo" id="dateTo" value="<?php echo $_GET['dateTo'] ?>" size="" class="input-text"  alt="" /></td>
                         <td>Category:</td>
                         
-                        <td><select name="cat"><option></option><option></option><option></option><option></option></select></td>
+                        <td><select name="cat">
+                        <option value="Food">Food</option>
+                        <option value="Transport">Transport</option>
+                        <option value="Restaurant">Restaurant</option>
+                        <option value="Entertainment">Entertainment</option>
+                       <option value="Other">Other</option>
+                       </select></td>
                         <td>Description:</td>
                         <td><input type="text" name="description" id="description" value="<?php echo $_GET['description'] ?>" size="" class="input-text"  alt="" /></td>
                     

@@ -55,6 +55,7 @@ EditText txtName;
     		String id="";
 			try {
 				returns = new RegisterAction().execute(txtName.getText().toString(),txtUserName.getText().toString(),txtPassword.getText().toString()).get();
+				System.out.println(returns);
 				JSONArray arrayReturns = new JSONArray(returns);
 				
 				status = (String) arrayReturns.get(0);
@@ -72,11 +73,11 @@ EditText txtName;
 				e.printStackTrace();
 			}
 			
-			 if(status!=null && !status.equals("false") && !status.equals("") ){
+			 if(!status.equals("false") && !status.equals("") ){
 				 
 				 Toast.makeText(Register.this, desc,Toast.LENGTH_LONG).show();
 				 ClassFile sf = new ClassFile();
-				 sf.SaveLoginFile(id);
+				 sf.SaveLoginFile(id.replace("\"", ""));
 				 Intent openStartingPoint = new Intent("com.example.mobacc.MENU");
 				startActivity(openStartingPoint);
 			 }else{

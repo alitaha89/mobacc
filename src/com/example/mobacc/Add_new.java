@@ -65,7 +65,7 @@ public class Add_new extends Activity {
  private void setDateValue(){
 	 
 	 
-	 SimpleDateFormat sdf = new SimpleDateFormat( "yyyy/MM/dd" ); 
+	 SimpleDateFormat sdf = new SimpleDateFormat( "yyyy-MM-dd" ); 
 		date.setText( sdf.format( new Date() ));
  }
   
@@ -103,7 +103,7 @@ public class Add_new extends Activity {
 					merchant.setText("");
 					setDateValue();
 					description.setText("");
-					  
+					System.out.println(Report.toString());
 					if(isOnline()){
 						
 						sendPost(Report.toString()) ;

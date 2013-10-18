@@ -21,27 +21,29 @@ class Add_newAction extends AsyncTask<String, String, String>{
             	
 
             	ClassFile rf=	new ClassFile();
-
-				if(uri[0] != null && !uri[0].equals("") && snd.sendRequest("mobacc/api/depence.php?data="+URLEncoder.encode(uri[0], "utf-8")).equals("false") ){
-				
-				   return "true";
-				   
-				} else{
-				    //Closes the connection.
+            	
+            	if(uri[0] != null && !uri[0].equals("") ){
+            		String responce = snd.sendRequest("mobacc/api/expence.php?data="+URLEncoder.encode(uri[0], "utf-8"));
+					if(!responce.equals("false")){
 					
-					if(uri[1]!="ReadFile"){
-				      	SaveFile ss = new SaveFile();
-				     	ss.execute(uri[0]);
-					}else{
+					   return responce;
+					   
+					} else{
+					    
 						
-						
-						
-						
-						
-						rf.deleteDataFile();
+						if(uri[1]!="ReadFile"){
+							
+					      	SaveFile ss = new SaveFile();
+					     	ss.execute(uri[0]);
+					     	
+						}else{
+							
+							
+							rf.deleteDataFile();
+						}
+	      
 					}
-      
-				}
+            	}
 			} catch (UnsupportedEncodingException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
