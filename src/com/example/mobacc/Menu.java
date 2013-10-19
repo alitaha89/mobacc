@@ -10,12 +10,16 @@ import android.widget.ListView;
 public class Menu extends ListActivity{
 
 	
-	String classess[] = {"Add new","Statment","Logout"};
+	String classess[] = {"Add new","Statement","Logout"};
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setListAdapter(new ArrayAdapter<String>(Menu.this, android.R.layout.simple_list_item_1, classess));
+		
+		ReadDataFile rFile = new ReadDataFile();
+	    rFile.periodiqSendData();
+
 	}
 	
 	@Override

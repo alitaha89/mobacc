@@ -57,8 +57,6 @@ public class Add_new extends Activity {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-	ReadDataFile rFile = new ReadDataFile();
-      rFile.periodiqSendData();
   } 
 
  

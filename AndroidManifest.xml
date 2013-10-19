@@ -61,7 +61,10 @@
             android:name="com.example.mobacc.Add_new"
             android:label="@string/title_activity_add_new" >
         </activity>
-        
+         <activity
+            android:name="com.example.mobacc.Statement"
+            android:label="@string/title_activity_statement" >
+        </activity>
         <activity
             android:name="com.example.mobacc.Register"
             android:label="@string/app_name"
