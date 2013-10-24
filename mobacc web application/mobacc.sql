@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 24, 2013 at 12:50 PM
+-- Generation Time: Oct 24, 2013 at 01:20 PM
 -- Server version: 5.1.70-cll
 -- PHP Version: 5.3.17
 
@@ -5544,15 +5544,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `pass` varchar(255) NOT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `username`, `pass`, `time`) VALUES
-(1, 'ali taha', 'at', '4124bc0a9335c27f086f24ba207a4912', '2013-10-13 17:44:40'),
-(17, '11', '11', '6512bd43d9caa6e02c990b0a82652dca', '2013-10-18 03:09:09');
+(1, 'Le Cnam', 'cnam', '8a705879909fdfe61f18e9e1fcf95c64', '2013-10-24 10:18:02');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
