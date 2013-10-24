@@ -21,9 +21,12 @@ Gestion des depenses personnelle Android + web.
 -php folder: mobacc web application
 -myssql data base folder: mobacc web application/mobacc.sql
 
--web application is located under: www.linteractif.com/mobacc  whith demo user 
+-web application is located under: www.linteractif.com/mobacc  with demo user 
 
 -user name:cnam
+
 -password:SMB215
 
 -by default application send http request to www.linteractif.com/mobacc/api can be edited from "mobacc / src / com / example / mobacc / SendRequest.java"
+
+-in order to test application in emulator with no connection press F8
