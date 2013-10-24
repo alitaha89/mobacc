@@ -1,6 +1,6 @@
 <?php
 require_once('header.php');
-
+/*
 $i=0;
 $a = array('Food','Transport','Restaurant','Entertainment','Other');
 while($i<1500){
@@ -11,7 +11,7 @@ while($i<1500){
 	mysql_query($qeury);
 	$i++;
 }
-
+*/
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
