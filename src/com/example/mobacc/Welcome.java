@@ -15,7 +15,7 @@ public class Welcome extends Activity{
 			public void run(){
 				try{
 					
-					sleep(500);
+					sleep(5000);
 					
 				} catch (InterruptedException e){
 					e.printStackTrace();

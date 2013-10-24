@@ -38,15 +38,15 @@ include('statement.php');
     <table border="0" width="100%" cellpadding="5">
     	<tr>
         	<td>Today Expence:</td>
-            <td><?php echo (double) $data_today['sum'] ?> L.L</td>
+            <td align="right"><?php echo (double) $data_today['sum'] ?> L.L</td>
         </tr>
         <tr>
         	<td>This Month (<?php echo date('F Y') ?>) Expence:</td>
-            <td><?php echo (double) $data_monthly['sum'] ?> L.L</td>
+            <td align="right"><?php echo (double) $data_monthly['sum'] ?> L.L</td>
         </tr>
         <tr>
         	<td>Total Expence:</td>
-            <td><?php echo (double) $data_all['sum'] ?> L.L</td>
+            <td align="right"><?php echo (double) $data_all['sum'] ?> L.L</td>
         </tr>
     </table>
     

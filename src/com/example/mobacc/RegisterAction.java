@@ -20,7 +20,7 @@ class RegisterAction extends AsyncTask<String, String, String>{
          
            
             try {
-            	return snd.sendRequest("mobacc/api/register.php?name="+URLEncoder.encode(uri[0], "utf-8")+"&username="+URLEncoder.encode(uri[1], "utf-8")+"&pass="+URLEncoder.encode(uri[2], "utf-8"));
+            	return snd.sendRequest("api/register.php?name="+URLEncoder.encode(uri[0], "utf-8")+"&username="+URLEncoder.encode(uri[1], "utf-8")+"&pass="+URLEncoder.encode(uri[2], "utf-8"));
 				
 			} catch (UnsupportedEncodingException e) {
 				// TODO Auto-generated catch block

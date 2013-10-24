@@ -101,7 +101,7 @@ public class Add_new extends Activity {
 					merchant.setText("");
 					setDateValue();
 					description.setText("");
-					System.out.println(Report.toString());
+					
 					if(isOnline()){
 						
 						sendPost(Report.toString()) ;

@@ -23,7 +23,7 @@ class Add_newAction extends AsyncTask<String, String, String>{
             	ClassFile rf=	new ClassFile();
             	
             	if(uri[0] != null && !uri[0].equals("") ){
-            		String responce = snd.sendRequest("mobacc/api/expence.php?data="+URLEncoder.encode(uri[0], "utf-8"));
+            		String responce = snd.sendRequest("api/expence.php?data="+URLEncoder.encode(uri[0], "utf-8"));
 					if(!responce.equals("false")){
 					
 					   return responce;

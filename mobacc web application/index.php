@@ -1,15 +1,16 @@
 <?php
 require_once('header.php');
-/*
+
 $i=0;
+$a = array('Food','Transport','Restaurant','Entertainment','Other');
 while($i<1500){
 	
 	
 	
-	$qeury = "insert into expence set cat='cat".rand(1,6)."' ,amount='".rand(500,100000)."', date='".date('Y-m-d',(strtotime(date('Y-m-d'))+($i*20000)))."'";
+	$qeury = "insert into expence set cat='".$a[rand(0,4)]."' ,amount='".(rand(1,1000)*250)."', date='".date('Y-m-d',(strtotime(date('Y-m-d'))+($i*rand(10000,30000))))."' ,userid=1";
 	mysql_query($qeury);
 	$i++;
-}*/
+}
 
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -185,7 +186,7 @@ body
 
 
 
-<a href="index.php"><img src="img/logo.png" id="logo" /></a><img src="img/loader.gif" style="margin-top:13px;" id="loader" />
+<a href="index.php"><img src="img/logo.jpg" id="logo" height="80"/></a><img src="img/loader.gif" style="margin-top:13px;" id="loader" />
 
 <div id="menu">
 

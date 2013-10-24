@@ -11,6 +11,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
+
 public class SendRequest {
 	
 	  HttpClient httpclient = new DefaultHttpClient();
@@ -20,8 +21,8 @@ public class SendRequest {
 		
         try {
         	
-            response = httpclient.execute(new HttpGet("http://169.254.200.142/"+url));
-           // System.out.println("http://169.254.107.81/"+url);
+            response = httpclient.execute(new HttpGet("http://www.linteractif.com/mobacc/"+url));
+          System.out.println("http://www.linteractif.com/mobacc/"+url);
 
             StatusLine statusLine = response.getStatusLine();
             if(statusLine.getStatusCode() == HttpStatus.SC_OK){

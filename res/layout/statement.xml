@@ -14,7 +14,8 @@
  <EditText 
  android:hint="Loading date..."
  android:inputType="text"
- android:id="@+id/TextView01val" 
+ android:id="@+id/TextView01val"
+ android:editable="false"
  android:layout_width="fill_parent" 
  android:layout_height="wrap_content">
  </EditText>
@@ -33,7 +34,8 @@
  <EditText 
  android:hint="Loading date..."
  android:inputType="text"
- android:id="@+id/TextView02val" 
+ android:id="@+id/TextView02val"
+ android:editable="false"
  android:layout_width="fill_parent" 
  android:layout_height="wrap_content">
  </EditText>
@@ -52,6 +54,7 @@
  android:hint="Loading date..."
  android:inputType="text"
  android:id="@+id/TextView03val" 
+ android:editable="false"
  android:layout_width="fill_parent" 
  android:layout_height="wrap_content">
  </EditText>

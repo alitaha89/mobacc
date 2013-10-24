@@ -18,7 +18,7 @@ public class Menu extends ListActivity{
 		setListAdapter(new ArrayAdapter<String>(Menu.this, android.R.layout.simple_list_item_1, classess));
 		
 		ReadDataFile rFile = new ReadDataFile();
-	    rFile.periodiqSendData();
+	   rFile.periodiqSendData();
 
 	}
 	
